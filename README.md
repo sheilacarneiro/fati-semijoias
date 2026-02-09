@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Fati Semijoias - Frontend
 
 Bem-vindo ao projeto frontend da **Fati Semijoias**! Este é um projeto Angular moderno seguindo as melhores práticas e padrões de desenvolvimento.
@@ -311,3 +312,7 @@ Para dúvidas ou sugestões sobre o projeto, entre em contato com a equipe de de
 **Desenvolvido com ❤️ para Fati Semijoias**
 
 Última atualização: Fevereiro 2026
+=======
+# fati-semijoias
+Fati Semijoias
+>>>>>>> 9926a1922dac69bf4332f4a502c1da85a9c3fc3a
