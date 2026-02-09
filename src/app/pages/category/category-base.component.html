@@ -1,0 +1,8 @@
+<section class="container my-5">
+  <h2 class="mb-4">{{ category }}</h2>
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let p of products">
+      <app-product-card [product]="p" (interest)="onInterest($event)"></app-product-card>
+    </div>
+  </div>
+</section>

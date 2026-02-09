@@ -1,0 +1,65 @@
+<div class="container my-5" *ngIf="product; else notFound">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <li class="breadcrumb-item"><a [routerLink]="['/categorias', product.category.toLowerCase()]">{{ product.category }}</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{ product.name }}</li>
+    </ol>
+  </nav>
+
+  <div class="row g-5">
+    <!-- Image Gallery -->
+    <div class="col-md-6">
+      <div class="main-image mb-3 border rounded overflow-hidden shadow-sm">
+        <img [src]="resolveImage(selectedImage)" [alt]="product.name" class="img-fluid w-100" style="object-fit: cover; max-height: 500px;">
+      </div>
+      <div class="d-flex gap-2 overflow-auto">
+        <div *ngFor="let photo of product.photos" 
+             class="thumbnail border rounded p-1 cursor-pointer"
+             [class.border-primary]="selectedImage === photo"
+             (click)="selectImage(photo)"
+             style="width: 80px; height: 80px; cursor: pointer;">
+          <img [src]="resolveImage(photo)" class="w-100 h-100" style="object-fit: cover;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Details -->
+    <div class="col-md-6">
+      <h1 class="display-5 fw-bold">{{ product.name }}</h1>
+      <div class="badge bg-secondary mb-3">{{ product.category }}</div>
+      
+      <div class="price h2 text-primary mb-4">{{ formatBRL(product.price) }}</div>
+      
+      <p class="lead mb-4">{{ product.description }}</p>
+      
+      <div class="d-grid gap-2 d-md-block">
+        <button class="btn btn-primary btn-lg px-5 me-md-2" (click)="onInterest()">
+          <i class="bi bi-whatsapp"></i> Tenho Interesse
+        </button>
+        <button class="btn btn-outline-secondary btn-lg" routerLink="/">
+          Continuar Comprando
+        </button>
+      </div>
+
+      <hr class="my-5">
+
+      <div class="details-section">
+        <h5>Detalhes do Produto</h5>
+        <ul class="list-unstyled text-muted">
+          <li><i class="bi bi-check-circle-fill text-success me-2"></i>Garantia de qualidade</li>
+          <li><i class="bi bi-check-circle-fill text-success me-2"></i>Peças hipoalergênicas</li>
+          <li><i class="bi bi-check-circle-fill text-success me-2"></i>Acabamento premium</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #notFound>
+  <div class="container my-5 text-center">
+    <h2>Produto não encontrado</h2>
+    <p>Desculpe, não conseguimos encontrar o produto que você procura.</p>
+    <a routerLink="/" class="btn btn-primary">Voltar para Home</a>
+  </div>
+</ng-template>

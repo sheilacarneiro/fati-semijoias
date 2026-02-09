@@ -1,0 +1,28 @@
+<section class="hero text-center py-5">
+  <div class="container">
+    <h1 class="display-5 fw-bold mb-3">Fati Semijoias</h1>
+    <p class="lead mb-4">Elegância, brilho e delicadeza para todas as ocasiões.</p>
+    <div>
+      <a class="btn btn-primary btn-lg me-2" routerLink="/categorias/brincos">Ver Brincos</a>
+      <a class="btn btn-outline-primary btn-lg" routerLink="/categorias/aneis">Ver Anéis</a>
+    </div>
+  </div>
+</section>
+
+<section class="container my-5">
+  <h2 class="mb-3">Mais Vendidos</h2>
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let p of bestSellers">
+      <app-product-card [product]="p" (interest)="onInterest($event)"></app-product-card>
+    </div>
+  </div>
+</section>
+
+<section class="container my-5">
+  <h2 class="mb-3">Destaques</h2>
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let p of highlights">
+      <app-product-card [product]="p" (interest)="onInterest($event)"></app-product-card>
+    </div>
+  </div>
+</section>

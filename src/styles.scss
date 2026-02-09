@@ -1,0 +1,418 @@
+// ========================================
+// ARQUIVO DE ESTILOS GLOBAIS - styles.scss
+// ========================================
+
+// 1. IMPORTAR BOOTSTRAP 5 (método moderno)
+// Isso inclui todas as funcionalidades do Bootstrap
+@use "bootstrap/scss/bootstrap";
+@use "sass:color";
+
+// ========================================
+// 2. VARIÁVEIS CUSTOMIZADAS
+// ========================================
+
+// Cores da marca
+$brand-primary: #6f42c1;
+$brand-secondary: #e83e8c;
+$brand-accent: #ff6b6b;
+$brand-success: #28a745;
+$brand-warning: #ffc107;
+$brand-danger: #dc3545;
+$brand-info: #17a2b8;
+$brand-button: #D60300;
+
+// Tipografia
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+$font-size-base: 1rem;
+$line-height-base: 1.5;
+
+// Variáveis de texto utilizadas no projeto
+$text-dark: #212529;
+
+// ========================================
+// 3. ESTILOS GLOBAIS
+// ========================================
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: $font-family-sans-serif;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+// ========================================
+// 4. ESTILOS DE TIPOGRAFIA
+// ========================================
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: $text-dark;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+h2 {
+  font-size: 2rem;
+  
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: $brand-primary;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $brand-secondary;
+    text-decoration: underline;
+  }
+}
+
+// ========================================
+// 5. COMPONENTES BOOTSTRAP CUSTOMIZADOS
+// ========================================
+
+// Customizações de botões
+.btn {
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.btn-primary {
+  background-color: $brand-button;
+  border-color: $brand-button;
+
+  &:hover {
+    background-color: color.adjust($brand-button, $lightness: -10%);
+    border-color: color.adjust($brand-button, $lightness: -10%);
+  }
+}
+
+.btn-outline-primary {
+  color: $brand-button;
+  border-color: $brand-button;
+
+  &:hover {
+    color: #fff;
+    background-color: $brand-button;
+    border-color: $brand-button;
+  }
+}
+
+.btn-secondary {
+  background-color: $brand-secondary;
+  border-color: $brand-secondary;
+
+  &:hover {
+    background-color: color.adjust($brand-secondary, $lightness: -10%);
+    border-color: color.adjust($brand-secondary, $lightness: -10%);
+  }
+}
+
+// Customizações de cards
+.card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+  }
+
+  .card-header {
+    background: linear-gradient(135deg, $brand-primary, $brand-secondary);
+    color: white;
+    border: none;
+    padding: 1.5rem;
+  }
+
+  .card-body {
+    padding: 2rem;
+  }
+
+  .card-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+  }
+}
+
+// Customizações de nav
+.navbar-dark .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.3s ease;
+  position: relative;
+}
+.navbar-dark .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: $brand-secondary;
+  transition: width 0.3s ease;
+}
+.navbar-dark .nav-link:hover,
+.navbar-dark .nav-link.active {
+  color: #fff;
+}
+.navbar-dark .nav-link:hover::after,
+.navbar-dark .nav-link.active::after {
+  width: 100%;
+}
+
+// ========================================
+// 6. LAYOUT E GRID
+// ========================================
+
+.container,
+.container-fluid {
+  padding: 0 1rem;
+  
+  @media (min-width: 1200px) {
+    padding: 0 2rem;
+  }
+}
+
+.row {
+  margin-left: -1rem;
+  margin-right: -1rem;
+
+  @media (min-width: 1200px) {
+    margin-left: -2rem;
+    margin-right: -2rem;
+  }
+}
+
+[class*='col-'] {
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @media (min-width: 1200px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+// ========================================
+// 7. FORMULÁRIOS
+// ========================================
+
+.form-control,
+.form-select {
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+
+  &:focus {
+    border-color: $brand-primary;
+    box-shadow: 0 0 0 0.2rem rgba(111, 66, 193, 0.25);
+  }
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: $text-dark;
+}
+
+// ========================================
+// 8. UTILITÁRIOS
+// ========================================
+
+// Shadows
+.shadow-sm {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.shadow {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.16), 0 10px 40px rgba(0, 0, 0, 0.23);
+}
+
+// Espaçamento
+.gap-custom {
+  gap: 2rem;
+}
+
+// Bordas
+.border-bottom-custom {
+  border-bottom: 3px solid $brand-primary;
+}
+
+// Texto
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-primary-custom {
+  color: $brand-primary;
+}
+
+.text-secondary-custom {
+  color: $brand-secondary;
+}
+
+// ========================================
+// 9. RESPONSIVIDADE
+// ========================================
+
+@media (max-width: 576px) {
+  body {
+    font-size: 0.95rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .container-fluid {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+// ========================================
+// 10. ANIMAÇÕES
+// ========================================
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.slide-in {
+  animation: slideIn 0.5s ease-in-out;
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+// ========================================
+// 11. ACESSIBILIDADE
+// ========================================
+
+// Foco visível
+:focus-visible {
+  outline: 2px solid $brand-primary;
+  outline-offset: 2px;
+}
+
+// Melhorar contraste
+.text-muted {
+  color: #666 !important;
+}
+
+// ========================================
+// 12. IMPRESSÃO
+// ========================================
+
+@media print {
+  body {
+    background-color: white;
+  }
+
+  .navbar,
+  footer {
+    display: none;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+}

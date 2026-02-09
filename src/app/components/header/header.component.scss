@@ -1,0 +1,24 @@
+.logo {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+}
+.brand-text {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #131313;
+  font-size: 1.25rem;
+}
+:host {
+  display: block;
+}
+.navbar {
+  background-color: #fff !important;
+}
+.nav-link {
+  color: #131313;
+}
+.nav-link.active,
+.nav-link:hover {
+  color: #D60300;
+}
