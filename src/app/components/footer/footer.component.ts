@@ -12,6 +12,6 @@ import { CommonModule } from '@angular/common';
 export class FooterComponent {
   year = new Date().getFullYear();
   instagramUrl = 'https://www.instagram.com/fatisemijoias/';
-  whatsappUrl = 'https://wa.me/551199258799';
+  whatsappUrl = 'https://wa.me/+5511992528769';
   emailUrl = 'mailto:fatisemijoias@gmail.com';
 }

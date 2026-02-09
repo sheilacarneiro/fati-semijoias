@@ -59,7 +59,7 @@ export class ProductDetailComponent implements OnInit {
   onInterest(): void {
     if (!this.product) return;
     const msg = `Olá! Tenho interesse na joia "${this.product.name}" da categoria ${this.product.category} da Fati Semijoias.`;
-    const url = `https://wa.me/551199258799?text=${encodeURIComponent(msg)}`;
+    const url = `https://wa.me/+5511992528769?text=${encodeURIComponent(msg)}`;
     window.open(url, '_blank');
   }
 }

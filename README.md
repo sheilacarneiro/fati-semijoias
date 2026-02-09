@@ -170,7 +170,7 @@ O arquivo `src/styles.scss` contém:
 
 ## 📲 WhatsApp
 
-- Botão “Tenho interesse” abre WhatsApp com mensagem pré-preenchida usando `https://wa.me/551199258799?text=...`
+- Botão “Tenho interesse” abre WhatsApp com mensagem pré-preenchida usando `https://wa.me/+5511992528769?text=...`
 - Para direcionar para um número específico, altere a URL para `https://wa.me/SEU_NUMERO?text=...` (formato: DDI+DDD+Número, ex: 5511999999999)
 
 ## 🖼️ Logo
